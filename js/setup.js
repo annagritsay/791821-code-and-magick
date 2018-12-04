@@ -30,14 +30,12 @@ randomFunction();
 var template = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 var fragment = document.createDocumentFragment();
 var similarList = document.querySelector('.setup-similar-list');
-var wizardCoat = document.querySelector('.wizard-coat');
-var wizardEyes = document.querySelector('.wizard-eyes');
 
 for (var i = 0; i < numberOfWizards; i++) {
   var element = template.cloneNode(true);
   element.children[1].textContent = wizardFeatures[i].name;
-  wizardCoat.setAttribute('style', 'fill: ' + wizardFeatures[i].coatColor + ';');
-  wizardEyes.setAttribute('style', 'fill: ' + wizardFeatures[i].eyesColor + ';');
+  element.querySelector('.wizard-coat').style.fill = wizardFeatures[i].coatColor;
+  element.querySelector('.wizard-eyes').style.fill = wizardFeatures[i].eyesColor;
   fragment.appendChild(element);
 }
 
